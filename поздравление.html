@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днём Рождения! ✨</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --accent-color: #ff6b8b;
+            --accent-gradient: linear-gradient(135deg, #ff6b8b 0%, #ff8e53 100%);
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+            --shadow-soft: 0 10px 30px rgba(163, 177, 198, 0.35);
+            --shadow-btn: 0 5px 15px rgba(255, 107, 139, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 35px;
+            margin-bottom: 50px;
+        }
+
+        .photo-container {
+            position: relative;
+            max-width: 340px;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            background: #fff;
+            padding: 10px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .photo-container:hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        .photo-container img {
+            width: 100%;
+            border-radius: 16px;
+            display: block;
+        }
+
+        .hero-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 4px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+            margin: 8px auto 0 auto;
+        }
+
+        .wishes-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .wish-item {
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .wish-item::before {
+            content: '🌸';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.2rem;
+        }
+
+        .wish-title {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            font-size: 1.05rem;
+        }
+
+        .wish-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .video-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .video-wrapper {
+            max-width: 450px;
+            margin: 20px auto 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(163, 177, 198, 0.4);
+            background: #000;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+        }
+
+        .kreed-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f6f0ff 100%);
+            border-radius: 24px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(138, 43, 226, 0.15);
+        }
+
+        .btn {
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 14px 36px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: var(--shadow-btn);
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 139, 0.5);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .compliment-box {
+            min-height: 70px;
+            margin-top: 25px;
+            padding: 15px 25px;
+            font-size: 1.15rem;
+            color: #4a154b;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255, 107, 139, 0.3);
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .wishes-card { padding: 25px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>С Днём Рождения! ✨</h1>
+        <p class="subtitle">От школьных весёлых дней до университетских высот</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Главная секция с фото -->
+        <section class="hero-section">
+            <div class="photo-container">
+                <img src="image_vMTBm9.png" alt="Именинница">
+            </div>
+            <div class="hero-text">
+                <h2>Ты невероятная! 🔥</h2>
+                <p>
+                    Умная, целеустремленная, бесконечно харизматичная и просто мега-крутая. Человек, способный покорить абсолютно любую вершину, за которую берется!
+                </p>
+            </div>
+        </section>
+
+        <!-- Расширенный блок искренних и веселых пожеланий -->
+        <h3 class="section-title">Большие пожелания для крутого человека</h3>
+        <div class="wishes-card">
+            <div class="wishes-grid">
+                <div class="wish-item">
+                    <div class="wish-title">Грандиозного успеха</div>
+                    <div class="wish-desc">Пусть любые твои амбиции и самые смелые планы реализуются легко. Ты рождена для больших побед!</div>
+                </div>
+                <div class="wish-item">
+                    <div class="wish-title">Ярких путешествий</div>
+                    <div class="wish-desc">Желаю открыть для себя красивейшие уголки планеты, собирать моменты и кайфовать от жизни на полную.</div>
+                </div>
+                <div class="wish-item">
+                    <div class="wish-title">Вдохновения без границ</div>
+                    <div class="wish-desc">Пусть рутина никогда не затягивает, а каждый новый день приносит интересные задачи и крутые идеи.</div>
+                </div>
+                <div class="wish-item">
+                    <div class="wish-title">Гармонии и баланса</div>
+                    <div class="wish-desc">Чтобы всегда хватало времени и на великие дела, и на классный отдых с друзьями, и на любимую музыку.</div>
+                </div>
+                <div class="wish-item">
+                    <div class="wish-title">Уверенности в себе</div>
+                    <div class="wish-desc">Никогда не сомневайся в своих силах. Твоего ума и упорства хватит, чтобы обойти любые жизненные баги.</div>
+                </div>
+                <div class="wish-item">
+                    <div class="wish-title">Искренних людей рядом</div>
+                    <div class="wish-desc">Пусть тебя окружают только те, кто ценит твою уникальность, поддерживает и заряжает правильной энергией.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Видео-блок воспоминаний -->
+        <section class="video-section">
+            <h3 class="section-title">Ностальгический таймлайн</h3>
+            <p style="color: var(--text-muted); margin-bottom: 10px;">Прошли вместе огонь, воду и школьные стены!</p>
+            <div class="video-wrapper">
+                <video controls loop muted>
+                    <source src="video.mp4" type="video/mp4">
+ Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </section>
+
+        <!-- Интерактивный блок с Егором Кридом -->
+        <section class="kreed-section">
+            <h3 class="section-title">Зона вдохновения от Егора Крида</h3>
+            <p style="color: var(--text-muted);">Когда нужен мощный заряд мотивации, узнай, что приготовил для тебя главный краш!</p>
+            
+            <button class="btn" onclick="generateCompliment()">Узнать мнение Егора 👇</button>
+            <div class="compliment-box" id="complimentText">Нажми на кнопку, чтобы получить персональную цитату поддержки!</div>
+        </section>
+
+    </div> <!-- Конец контейнера -->
+
+    <footer>
+        <p>С праздником! Пусть этот год будет незабываемым 🚀</p>
+    </footer>
+
+    <script>
+        const compliments = [
+            "«Ты — та самая-самая, у которой всё обязательно получится!» — уверенно передает Егор Крид. 😉",
+            "Егор Крид считает, что твоя целеустремленность круче любых чартов. Твой успех — это лишь вопрос времени!",
+            "«Пока другие сомневаются, ты просто бери и делай. Я в тебя верю!» — твой личный мотиватор на сегодня.",
+            "Для тебя не существует закрытых дверей. Ты способна взломать этот мир своей харизмой и умом!",
+            "«Оставайся такой же настоящей и сильной» — передает Егор. Прекрасный день, чтобы сиять! ⭐"
+        ];
+
+        function generateCompliment() {
+            const textElement = document.getElementById('complimentText');
+            const randomIndex = Math.floor(Math.random() * compliments.length);
+            textElement.innerHTML = compliments[randomIndex];
+        }
+    </script>
+</body>
+</html>
